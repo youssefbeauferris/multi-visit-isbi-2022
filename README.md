@@ -1,12 +1,4 @@
-This repository was created to demonstrate the multi-visit MR reconstruction methodology tested on brain cancer subjects. The summarized results were submitted to ISBI 2022 (paper id: 778); paper title: LEVERAGING MULTI-VISIT INFORMATION FOR MAGNETIC RESONANCE IMAGERECONSTRUCTION: PILOT STUDY ON A COHORT OF GLIOBLASTOMA SUBJECTS. The dataset used for this study has been made avaialble 
 
-1. Generate initial reconstruction from under-sampled k-space using retrospective undersampling (zero-filled reconstruction)
-	1.1 Using "sampling-masks.ipynb" a k-space sampling mask can be created which follows a poisson disc distribution. 
-	1.2 Apply sampling mask to single-channel brain cancer data. 
-	1.3 Train a U-net to map between under-sampled and fully sampled and train cascade of U-nets (ikiki) alternating between k-space and image domain with data consitentcy blocks inbetween. 
-	1.3  
-
-2. Register the 
 
 #Multi-Visit-MRI-Reconstruction
 
@@ -25,10 +17,10 @@ The code was developed using Python 3.8, SimpleITK Superbuild, Tensorflow and Ke
 ## U-net
 
 
-[u-net architechture](./figures/u-net.png?raw=True)
+![u-net architechture](./figures/u-net.png?raw=True)
 U-net architecture. Composed of a single regression U-net to leverage the previous subject information. The network operates in the image domain and treats the previous scan and single-visit reconstruction as a two-channel image. 
 
-[u-net reconstruction](./figures/results_10x_15x.png?raw=True)
+![u-net reconstruction](./figures/results_10x_15x.png?raw=True)
 Magnification of previous fully sampled scan, single-visit rec. (baseline), multi-visit rec. (enhanced), and the fully sampled reference. Regions of interest are magnified for an acceleration factor of 10x and 15x. 
 
 ## Contact
@@ -36,5 +28,11 @@ Any questions? contact youssef.beauferris@ucalgary.ca or robertomedeirosdesouza@
 
 MIT License 
 Copyright (c) 2022 Youssef Beauferris
+
+## References
+
+[1] Souza, Roberto, Beauferris, Youssef and Richard Frayne.  “Enhanced deep-learning-based magnetic resonance image reconstruction byleveraging  prior  subject-specific  brain  imaging:  Proof-of-concept  usinga cohort of presumed normal subjects,”IEEE Journal of Selected Topicsin Signal Processing, vol. 14, no. 6, pp. 1126–1136, 2020.
+
+[2] Souza, Roberto, and Richard Frayne. "A hybrid frequency-domain/image-domain deep network for magnetic resonance image reconstruction." In 2019 32nd SIBGRAPI Conference on Graphics, Patterns and Images (SIBGRAPI), pp. 257-264. IEEE, 2019..
 
 
